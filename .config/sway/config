@@ -13,8 +13,7 @@ include catppuccin-mocha
 #
 set $mod Mod4
 set $term kitty
-set $menu rofi -show drun -show-icons -icon-theme "Papirus-Dark"
-
+set $menu ~/.config/rofi/bin/launcher
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
