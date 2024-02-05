@@ -10,6 +10,8 @@
 
 	programs.home-manager.enable = true;
 
+	stupid.kitty.enable = true;
+
 	programs.git = {
 		enable = true;
 		userName = "owuh";

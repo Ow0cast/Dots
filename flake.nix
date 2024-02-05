@@ -17,8 +17,9 @@
 				salad = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
-						./hosts/salad
 						home-manager.nixosModules.home-manager
+						./modules/nixos
+						./hosts/salad
 						{
 							home-manager.useGlobalPkgs = true;
 							home-manager.useUserPackages = true;
