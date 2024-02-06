@@ -1,4 +1,7 @@
 { # salad.
+# cached failures: 2
+	description = "it's reproducible guys!!!";
+	
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 		home-manager = {

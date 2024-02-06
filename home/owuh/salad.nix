@@ -1,17 +1,19 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
 	home.username = "owuh";
 	home.homeDirectory = "/home/owuh";
 
-	home.packages = [ ];
+	home.packages = [ pkgs."maple-mono-NF" ];
 
 	home.stateVersion = "23.11";
 
 	programs.home-manager.enable = true;
+	
+	stupid.shell.enable = true;
 
-	stupid.kitty.enable = true;
-
+	stupid.desktop.enable = true;
+	
 	programs.git = {
 		enable = true;
 		userName = "owuh";
@@ -19,9 +21,5 @@
 		extraConfig.init.defaultBranch = "main";
 	};
 
-	programs.zsh = {
-		enable = true;
-		autocd = true;
-		enableAutosuggestions = true;
-	};
+	
 }
