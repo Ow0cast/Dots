@@ -11,20 +11,23 @@
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "America/Toronto";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
+	
+	security.pam.loginLimits = [
+		{ domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
+	];
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager = {
+		sddm.enable = true;
+		sessionPackages = [ pkgs.sway ];
+	};
+
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
@@ -51,16 +54,22 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
+      #firefox
       kate
       neovim
     ];
 		shell = pkgs.zsh;
   };
 	programs.zsh.enable = true;
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-	
+
+  nixpkgs.config = {
+		allowUnfree = true;
+		packageOverrides = pkgs: {
+			nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+				inherit pkgs;
+			};
+		};
+	};
 	stupid.home-manager = {
 		enable = true;
 		users.owuh.enable = true;
