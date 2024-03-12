@@ -1,5 +1,5 @@
-{ # salad.
-# cached failures: 3
+# cached failures: 4 1/2
+{
 	description = "it's reproducible guys!!!";
 	
 	inputs = {
@@ -8,18 +8,21 @@
 			url = "github:nix-community/home-manager/release-23.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nur.url = github:nix-community/NUR;
 	};
 
 	outputs = inputs:
 		with inputs;
 		let
-			specialArgs = { inherit inputs self; };
+			specialArgs = { inherit inputs self nur; };
 		in
 		{
 			nixosConfigurations = {
 				salad = nixpkgs.lib.nixosSystem {
 					inherit specialArgs;
 					modules = [
+						{ nixpkgs.overlays = [ nur.overlay ]; }
+						nur.nixosModules.nur
 						home-manager.nixosModules.home-manager
 						./modules/nixos
 						./hosts/salad

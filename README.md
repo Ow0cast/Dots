@@ -8,4 +8,4 @@ image removed temporarily because im not done yet
 * runner: soon:tm:
 * terminal: kitty
 * shell: zsh
-* prompt: soon:tm:
+* prompt: starship

@@ -17,19 +17,18 @@ in
 			enable = true;
 			profiles.owuh = {
 				name = "salad";
-				id = 7;
+				id = 0;
 				isDefault = true;
-				extensions = 
-					with pkgs.nur.repos.rycee.firefox-addons; [
-						clearurls
-						darkreader
-						fastforwardteam
-						istilldontcareaboutcookies
-						one-click-wayback
-						peertubeify
-						proton-pass
-						sponsorblock
-						return-youtube-dislikes
+				extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+					clearurls
+					darkreader
+					fastforwardteam
+					istilldontcareaboutcookies
+					one-click-wayback
+					peertubeify
+					proton-pass
+					sponsorblock
+					return-youtube-dislikes
 				];
 			};
 			policies = {
