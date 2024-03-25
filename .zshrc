@@ -9,6 +9,8 @@ source ~/.config/znap-repos/znap/znap.zsh
 
 setopt autocd
 
+alias g='git'
+
 bindkey "^[[3~" delete-char
 
 znap source zsh-users/zsh-completions
