@@ -2,11 +2,12 @@
 
 { config, lib, pkgs, modulesPath, ... }:
 {
-	#imports = [ ./nvidia.nix ];
-	boot.initrd.availableKernelModules = [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
+  #imports = [ ./nvidia.nix ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "bcachefs" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c6b98f5d-f54b-4e3f-a92b-1c72c4b50d87";
