@@ -21,18 +21,6 @@
 		{ domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
 	];
 
-  services.xserver.displayManager = {
-		sddm.enable = true;
-		sessionPackages = [ pkgs.sway ];
-	};
-
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   users.users.sysadmin = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
