@@ -1,4 +1,4 @@
-# cached failures: 4 1/2
+# cached failures: 9
 {
 	description = "it's reproducible guys!!!";
 	
@@ -34,6 +34,22 @@
 						}
 					];
 				};
+				box = nixpkgs.lib.nixosSystem {
+					inherit specialArgs;
+					modules = [
+						{ nixpkgs.overlays = [ nur.overlay ]; }
+						nur.nixosModules.nur
+						home-manager.nixosModules.home-manager
+						./modules/nixos
+						./hosts/box
+						{
+							home-manager.useGlobalPkgs = true;
+							home-manager.useUserPackages = true;
+							home-manager.users.sysadmin = import ./home/sysadmin/box.nix;
+							home-manager.extraSpecialArgs = specialArgs;
+						}
+					];
+				};
 			};
 
 			homeConfigurations = {
@@ -42,6 +58,13 @@
 					modules = [
 						./modules/home
 						./home/owuh
+					];
+				};
+				"sysadmin@box" = home-manager.lib.homeManagerConfiguration {
+					pkgs = import nixpkgs { system = "x86_64-linux"; };
+					modules = [
+						./modules/home
+						./home/sysadmin
 					];
 				};
 			};
