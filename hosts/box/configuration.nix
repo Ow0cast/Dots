@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+	boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "box"; # Define your hostname.
 
@@ -47,6 +45,13 @@
 		enable = true;
 		users.sysadmin.enable = true;
 	};
+	security.sudo.extraRules = [{
+		users = ["sysadmin"];
+		commands = [{
+			command = "ALL";
+			options = ["NOPASSWD"];
+		}];
+	}];
 	stupid.sshd.enable = true;
 	stupid.samba.enable = true;
   system.stateVersion = "23.11"; # dont change this or youre stupid
