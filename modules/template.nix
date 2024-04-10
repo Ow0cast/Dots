@@ -1,18 +1,16 @@
 { config, lib, pkgs, ... }:
 let
-	inherit (lib)
-		mkEnableOption
-		mkIf
-		;
+  inherit (lib)
+    mkEnableOption
+    mkIf
+    ;
 
-	cfg = config.stupid.blehhhhhhhhhhhhhh;
+  cfg = config.stupid.blehhhhhhhhhhhhhh;
 in
 {
-	options.stupid.desktop = {
-		enable = mkEnableOption "mrrrrrrrrrrp :3";
-	};
+  options.stupid.desktop = {
+    enable = mkEnableOption "mrrrrrrrrrrp :3";
+  };
 
-	config = mkIf cfg.enable {
-		
-	};
+  config = mkIf cfg.enable { };
 }

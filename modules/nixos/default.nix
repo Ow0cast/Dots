@@ -1,7 +1,7 @@
 {
-	imports = [
-		./home-manager.nix
-		./sshd.nix
-		./samba.nix
-	];
+  imports = [
+    ./home-manager.nix
+    ./sshd.nix
+    ./samba.nix
+  ];
 }

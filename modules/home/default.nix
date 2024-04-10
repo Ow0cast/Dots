@@ -1,7 +1,7 @@
 {
-	imports = [
-		./shell.nix
-		./desktop.nix
-		./browser.nix
-	];
+  imports = [
+    ./shell.nix
+    ./desktop.nix
+    ./browser.nix
+  ];
 }

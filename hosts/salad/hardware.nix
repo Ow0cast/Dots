@@ -10,7 +10,8 @@
   boot.supportedFilesystems = [ "bcachefs" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c6b98f5d-f54b-4e3f-a92b-1c72c4b50d87";
+    {
+      device = "/dev/disk/by-uuid/c6b98f5d-f54b-4e3f-a92b-1c72c4b50d87";
       fsType = "ext4";
     };
 

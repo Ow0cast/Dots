@@ -9,7 +9,7 @@
   networking.hostName = "salad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.networkmanager.enable = true;
 
@@ -18,15 +18,15 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   services.xserver.enable = true;
-	
-	security.pam.loginLimits = [
-		{ domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
-	];
+
+  security.pam.loginLimits = [
+    { domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
+  ];
 
   services.xserver.displayManager = {
-		sddm.enable = true;
-		sessionPackages = [ pkgs.sway ];
-	};
+    sddm.enable = true;
+    sessionPackages = [ pkgs.sway ];
+  };
 
   services.xserver.desktopManager.plasma5.enable = true;
 
@@ -58,26 +58,27 @@
       kate
       neovim
     ];
-		shell = pkgs.zsh;
+    shell = pkgs.zsh;
   };
-	programs.zsh.enable = true;
+  programs.zsh.enable = true;
 
   nixpkgs.config = {
-		allowUnfree = true;
-		packageOverrides = pkgs: {
-			nur = import (builtins.fetchTarball {
-				url = "https://github.com/nix-community/NUR/archive/b221a8e8493458bf33a754d86970bc656fdc43cc.tar.gz";
-				sha256 = "18z3rg8gzh5mjjgs7b05llx6gc0gi39dq8msygrr9mn08cbxb7ab";
-			})
-			{
-				inherit pkgs;
-			};
-		};
-	};
-	stupid.home-manager = {
-		enable = true;
-		users.owuh.enable = true;
-	};
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      nur = import
+        (builtins.fetchTarball {
+          url = "https://github.com/nix-community/NUR/archive/b221a8e8493458bf33a754d86970bc656fdc43cc.tar.gz";
+          sha256 = "18z3rg8gzh5mjjgs7b05llx6gc0gi39dq8msygrr9mn08cbxb7ab";
+        })
+        {
+          inherit pkgs;
+        };
+    };
+  };
+  stupid.home-manager = {
+    enable = true;
+    users.owuh.enable = true;
+  };
 
   system.stateVersion = "23.11"; # dont change this or youre stupid
 }
