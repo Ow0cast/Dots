@@ -19,6 +19,8 @@ in
       packages = with pkgs; [
         aria2
         neovim
+	gnupg
+	btop
       ];
       shell = pkgs.zsh;
     };
