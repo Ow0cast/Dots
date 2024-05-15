@@ -59,8 +59,7 @@
   services.aria2.enable = true;
 
   virtualisation.docker.enable = true;
-
-  networking.firewall.allowedTCPPorts = [ 22 8096 8920 5055 8989 80 6789 ];
+  networking.firewall.allowedTCPPorts = [ 22 8096 8920 5055 8989 80 6789 7878 9696 8080 5960 ];
 
   system.stateVersion = "23.11"; # dont change this or youre stupid
 }

@@ -20,9 +20,9 @@ in
       shares = {
         share = {
           path = "/mnt/smb";
-          "guest ok" = "yes";
+          "guest ok" = "no";
           "read only" = "no";
-          comment = "foo";
+          comment = "the share";
         };
       };
     };
