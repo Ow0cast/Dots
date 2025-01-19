@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 {
-  home.username = "owuh";
-  home.homeDirectory = "/home/owuh";
+  home.username = "nikki";
+  home.homeDirectory = "/home/nikki";
 
   home.packages = [ pkgs."maple-mono-NF" ];
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
 

@@ -8,8 +8,8 @@ let
   cfg = config.stupid.shell;
 in
 {
-  options.stupid.shell = {
-    enable = mkEnableOption "Kitty";
+  options.stupid.terminal = {
+    enable = mkEnableOption "Terminal things";
   };
 
   config = mkIf cfg.enable {
