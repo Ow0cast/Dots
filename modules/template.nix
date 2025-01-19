@@ -5,11 +5,11 @@ let
     mkIf
     ;
 
-  cfg = config.ystem-name.module-name;
+  cfg = config.stupid.blehhhhhhhhhhhhhh;
 in
 {
-  options.system-name.module-name = {
-    enable = mkEnableOption "option title";
+  options.stupid.desktop = {
+    enable = mkEnableOption "mrrrrrrrrrrp :3";
   };
 
   config = mkIf cfg.enable { };

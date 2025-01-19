@@ -5,11 +5,11 @@ let
     mkIf
     ;
 
-  cfg = config.athena.terminal;
+  cfg = config.stupid.shell;
 in
 {
-  options.athena.terminal = {
-    enable = mkEnableOption "Terminal things";
+  options.stupid.shell = {
+    enable = mkEnableOption "Kitty";
   };
 
   config = mkIf cfg.enable {

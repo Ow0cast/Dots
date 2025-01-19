@@ -5,11 +5,11 @@ let
     mkIf
     ;
 
-  cfg = config.athena.desktop;
+  cfg = config.stupid.desktop;
 in
 {
-  options.athena.desktop = {
-    enable = mkEnableOption "Desktop with sway and waybar";
+  options.stupid.desktop = {
+    enable = mkEnableOption "Desktop";
   };
 
   config = mkIf cfg.enable {
@@ -29,18 +29,18 @@ in
     programs.rofi = {
       enable = true;
       theme = ''
-                * {
-                  bg-col: #1e1e2e;
-                  bg-col-light: #cba6f7;
-                  border-col: #cba6f7;
-                  selected-col: #cba6f7;
-                  blue: #89b4fa;
-                  fg-col: #cdd6f4;
-                  fg-col2: #bac2de;
-                  grey: #6c7086;
-                  width: 600;
-                }
-                '';
+        				* {
+        					bg-col: #1e1e2e;
+        					bg-col-light: #cba6f7;
+        					border-col: #cba6f7;
+        					selected-col: #cba6f7;
+        					blue: #89b4fa;
+        					fg-col: #cdd6f4;
+        					fg-col2: #bac2de;
+        					grey: #6c7086;
+        					width: 600;
+        				}
+        			'';
     };
 
     # window manager
@@ -48,11 +48,11 @@ in
       package = pkgs.swayfx;
       enable = true;
       extraConfig = ''
-                corner_radius 8
-                client.focused		#cba6f7  #1e1e2e  #cdd6f4  #f5e0dc  #cba6f7
-                client.focused_inactive #6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
-                client.unfocused	#6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
-              '';
+        				corner_radius 8
+        				client.focused		#cba6f7  #1e1e2e  #cdd6f4  #f5e0dc  #cba6f7
+        				client.focused_inactive #6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
+        				client.unfocused	#6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
+        			'';
       config = {
         modifier = "Mod4";
         terminal = "kitty";
@@ -146,9 +146,9 @@ in
         }
 
         #workspaces button:hover {
-          box-shadow: inherit;
-          text-shadow: inherit;
-          background-color: @crust;
+         box-shadow: inherit;
+         text-shadow: inherit;
+         background-color: @crust;
         }
 
         #workspaces button.urgent {
@@ -158,6 +158,7 @@ in
 
         #memory,
         #custom-power,
+        #battery,
         #backlight,
         #pulseaudio,
         #network,
@@ -196,11 +197,29 @@ in
         #memory {
           background-color: @peach;
         }
+        #battery {
+          background-color: @pink;
+        }
         @keyframes blink {
           to {
             background-color: #e64553;
             color: #181825;
           }
+        }
+
+        #battery.warning,
+        #battery.critical,
+        #battery.urgent {
+          background-color: #ff0048;
+          color: #181825;
+          animation-name: blink;
+          animation-duration: 0.5s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+        #battery.charging {
+          background-color: #a6e3a1;
         }
 
         #backlight {
@@ -228,14 +247,14 @@ in
 
 
         tooltip {
-          border-radius: 8px;
-          padding: 15px;
-          background-color: #131822;
+        border-radius: 8px;
+        padding: 15px;
+        background-color: #131822;
         }
 
         tooltip label {
-          padding: 5px;
-          background-color: #131822;
+        padding: 5px;
+        background-color: #131822;
         }'';
       settings = {
         bar = {
