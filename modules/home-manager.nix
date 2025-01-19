@@ -20,10 +20,10 @@ let
     };
   };
 
-  cfg = config.stupid.home-manager;
+  cfg = config.things.home-manager;
 in
 {
-  options.stupid.home-manager = {
+  options.things.home-manager = {
     enable = mkEnableOption "home-manager";
 
     extraHomeConfig = mkOption {

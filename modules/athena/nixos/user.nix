@@ -5,29 +5,29 @@ let
     mkIf
     ;
 
-  cfg = config.stupid.user;
+  cfg = config.athena.user;
 in
 {
-  options.stupid.user = {
-    enable = mkEnableOption "configures the user";
+  options.athena.user = {
+    enable = mkEnableOption "Configures user";
   };
 
   config = mkIf cfg.enable {
-    users.users.sysadmin = {
+    users.users.nikki = {
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
         aria2
         neovim
-	gnupg
-	btop
+        gnupg
+        btop
       ];
       shell = pkgs.zsh;
     };
-    programs.zsh.enable = true;
-    stupid.home-manager = {
+
+    athena.home-manager = {
       enable = true;
-      users.sysadmin.enable = true;
+      users.nikki.enable = true;
     };
   };
 }
