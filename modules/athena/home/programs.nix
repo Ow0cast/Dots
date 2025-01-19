@@ -9,11 +9,11 @@ let
 in
 {
   options.athena.programs = {
-    git.enable = mkEnableOption "Misc. programs";
+    enable = mkEnableOption "Misc. programs";
   };
 
-  config = {
-    programs.git = mkIf cfg.git.enable {
+  config = mkIf cfg.enable {
+    programs.git = {
       enable = true;
       userName = "owuh";
       email = "owuh@wayland.best";
