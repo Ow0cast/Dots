@@ -3,9 +3,9 @@
   description = "it's reproducible guys!!!";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = github:nix-community/NUR;
@@ -18,18 +18,18 @@
     in
     {
       nixosConfigurations = {
-        salad = nixpkgs.lib.nixosSystem {
+        athena = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
             { nixpkgs.overlays = [ nur.overlay ]; }
             nur.nixosModules.nur
             home-manager.nixosModules.home-manager
             ./modules/nixos
-            ./hosts/salad
+            ./hosts/athena
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.owuh = import ./home/owuh/salad.nix;
+              home-manager.users.nikki = import ./home/nikki/athena.nix;
               home-manager.extraSpecialArgs = specialArgs;
             }
           ];
@@ -53,11 +53,11 @@
       };
 
       homeConfigurations = {
-        "owuh@salad" = home-manager.lib.homeManagerConfiguration {
+        "nikki@athena" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { system = "x86_64-linux"; };
           modules = [
             ./modules/home
-            ./home/owuh
+            ./home/nikki
           ];
         };
         "sysadmin@box" = home-manager.lib.homeManagerConfiguration {

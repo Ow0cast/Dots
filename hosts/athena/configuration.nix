@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  # Bootloader. salad
+  # Bootloader. athena
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "salad"; # Define your hostname.
+  networking.hostName = "athena"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -50,7 +50,7 @@
     pulse.enable = true;
   };
 
-  users.users.owuh = {
+  users.users.nikki = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
@@ -77,7 +77,7 @@
   };
   stupid.home-manager = {
     enable = true;
-    users.owuh.enable = true;
+    users.nikki.enable = true;
   };
 
   system.stateVersion = "23.11"; # dont change this or youre stupid
