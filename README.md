@@ -3,8 +3,8 @@
 image removed temporarily because im not done yet
 ### programs
 * os: nixos :sunglass:
-* bar: waybar
-* wm: swayfx
+* bar: soon:tm:
+* wm: soon:tm:
 * runner: soon:tm:
 * terminal: kitty
 * shell: zsh
