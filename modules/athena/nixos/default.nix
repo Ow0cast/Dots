@@ -4,5 +4,5 @@
     ./configuration.nix
     ./network.nix
     ./user.nix
-  ]
+  ];
 }
