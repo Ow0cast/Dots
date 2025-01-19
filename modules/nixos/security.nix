@@ -14,6 +14,8 @@ in
 
   config = mkIf cfg.enable {
     security.pam.loginLimits = [
+      { domain = "*"; item = "memlock"; type = "-"; value = "infinity"; }
+      { domain = "*"; item = "nofile"; type = "-"; value = "65536"; }
       { domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
     ];
   };

@@ -5,7 +5,7 @@ let
     mkIf
     ;
 
-  cfg = config.stupid.shell;
+  cfg = config.stupid.terminal;
 in
 {
   options.stupid.terminal = {

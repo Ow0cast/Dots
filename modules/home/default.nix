@@ -1,6 +1,6 @@
 {
   imports = [
-    ./shell.nix
+    ./terminal.nix
     ./desktop.nix
     ./browser.nix
   ];

@@ -45,14 +45,14 @@ in
 
     # window manager
     wayland.windowManager.sway = {
-      package = pkgs.swayfx;
+      #      package = pkgs.swayfx;
       enable = true;
       extraConfig = ''
-        				corner_radius 8
-        				client.focused		#cba6f7  #1e1e2e  #cdd6f4  #f5e0dc  #cba6f7
-        				client.focused_inactive #6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
-        				client.unfocused	#6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
-        			'';
+        #        				corner_radius 8
+                				client.focused		#cba6f7  #1e1e2e  #cdd6f4  #f5e0dc  #cba6f7
+                				client.focused_inactive #6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
+                				client.unfocused	#6c7086  #1e1e2e  #cdd6f4  #f5e0dc  #6c7086
+                			'';
       config = {
         modifier = "Mod4";
         terminal = "kitty";

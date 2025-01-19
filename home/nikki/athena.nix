@@ -10,7 +10,7 @@
 
   programs.home-manager.enable = true;
 
-  stupid.shell.enable = true;
+  stupid.terminal.enable = true;
   stupid.desktop.enable = true;
   stupid.browser.enable = true;
   #programs.firefox.enable = true;
